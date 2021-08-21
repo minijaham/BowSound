@@ -1,0 +1,7 @@
+---
+name: BowSound
+version: 0.0.1
+main: minijaham\BowSound\Main
+api: 3.22.1
+author: minijaham
+...
