@@ -1,5 +1,7 @@
 # BowSound
+
 A simple recreation of Bow hit sound of Hypixel(Java)
 
-Original author: minijaham <br />
-I added customisation on what sound it plays. (not done yet)
+## How to customise sound?
+
+1. First, choose a sound from the list of Minecraft sounds [here](https://www.digminecraft.com/lists/sound_list_pe.php).
