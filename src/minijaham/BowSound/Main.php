@@ -32,8 +32,7 @@ class Main extends PluginBase implements Listener
 	
 	public function onHit(EntityDamageEvent $event)
 	{
-		$cause = $player->getLastDamageCause();
-		if($cause instanceof EntityDamageByEntityEvent && ($damager = $event->getDamager()) instanceof Arrow && ($player = $event->getEntity()) instanceof Player)
+		if($event instanceof EntityDamageByEntityEvent && ($damager = $event->getDamager()) instanceof Arrow && ($player = $event->getEntity()) instanceof Player)
 		{
 			$entity = $damager->shootingEntity;
 			$sound = new PlaySoundPacket();
