@@ -14,5 +14,5 @@ Example:<br />
 bow-hit-sound: "random.orb"
 ```
 
-5. Svae the file and restart the server.
+5. Save the file and restart the server.
 6. Enjoy!
