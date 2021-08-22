@@ -11,10 +11,11 @@ use pocketmine\{
 };
 use pocketmine\event\{
 	Listener,
-	entity\EntityDamageEvent
+	entity\EntityDamageEvent,
+	entity\EntityDamageByEntityEvent
 };
 use pocketmine\utils\Config;
-use pocketmine\entity\Arrow;
+use pocketmine\entity\projectile\Arrow;
 use pocketmine\network\mcpe\protocol\PlaySoundPacket;
 
 class Main extends PluginBase implements Listener
@@ -31,7 +32,8 @@ class Main extends PluginBase implements Listener
 	
 	public function onHit(EntityDamageEvent $event)
 	{
-		if(($damager = $event->getDamager()) instanceof Arrow && ($player = $event->getEntity()) instanceof Player)
+		$cause = $player->getLastDamageCause();
+		if($cause instanceof EntityDamageByEntityEvent && ($damager = $event->getDamager()) instanceof Arrow && ($player = $event->getEntity()) instanceof Player)
 		{
 			$entity = $damager->shootingEntity;
 			$sound = new PlaySoundPacket();
