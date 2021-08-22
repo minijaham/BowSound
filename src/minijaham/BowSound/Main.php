@@ -34,7 +34,8 @@ class Main extends PluginBase implements Listener
 	{
 		if($event instanceof EntityDamageByEntityEvent && ($damager = $event->getDamager()) instanceof Arrow && ($player = $event->getEntity()) instanceof Player)
 		{
-			$entity = $damager->shootingEntity;
+			if ($damager->getOwningEntity() == null) return;
+			$shooter = $damager->getOwningEntity();
 			$sound = new PlaySoundPacket();
 			$sound->soundName = $this->config->get("bow-hit-sound", "random.orb");
 			$sound->x = $entity->getX();
@@ -42,7 +43,7 @@ class Main extends PluginBase implements Listener
 			$sound->z = $entity->getZ();
 			$sound->volume = 1;
 			$sound->pitch = 1;
-			Server::getInstance()->broadcastPacket([$entity], $sound);
+			Server::getInstance()->broadcastPacket([$shooter], $sound);
 		}
 	}
 }
