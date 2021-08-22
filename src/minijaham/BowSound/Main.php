@@ -38,9 +38,9 @@ class Main extends PluginBase implements Listener
 			$shooter = $damager->getOwningEntity();
 			$sound = new PlaySoundPacket();
 			$sound->soundName = $this->config->get("bow-hit-sound", "random.orb");
-			$sound->x = $entity->getX();
-			$sound->y = $entity->getY();
-			$sound->z = $entity->getZ();
+			$sound->x = $shooter->getX();
+			$sound->y = $shooter->getY();
+			$sound->z = $shooter->getZ();
 			$sound->volume = 1;
 			$sound->pitch = 1;
 			Server::getInstance()->broadcastPacket([$shooter], $sound);
