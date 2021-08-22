@@ -13,6 +13,7 @@ use pocketmine\event\{
 	Listener,
 	entity\EntityDamageEvent
 };
+use pocketmine\utils\Config;
 use pocketmine\entity\Arrow;
 use pocketmine\network\mcpe\protocol\PlaySoundPacket;
 
