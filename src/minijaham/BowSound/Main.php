@@ -5,10 +5,7 @@ declare(strict_types=1);
 namespace minijaham\BowSound;
 
 use pocketmine\plugin\PluginBase;
-use pocketmine\{
-	Server,
-	Player
-};
+use pocketmine\Server;
 use pocketmine\event\{
 	Listener,
 	entity\EntityDamageEvent,
@@ -32,7 +29,7 @@ class Main extends PluginBase implements Listener
 	
 	public function onHit(EntityDamageEvent $event)
 	{
-		if($event instanceof EntityDamageByEntityEvent && ($damager = $event->getDamager()) instanceof Arrow && ($player = $event->getEntity()) instanceof Player)
+		if($event instanceof EntityDamageByEntityEvent && ($damager = $event->getDamager()) instanceof Arrow)
 		{
 			if ($damager->getOwningEntity() == null) return;
 			$shooter = $damager->getOwningEntity();
